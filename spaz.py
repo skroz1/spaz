@@ -284,7 +284,6 @@ def getzdata(ctx: typer.Context):
             # the first sample in the list is the most recent
             #sample = data['sensors'][sensorid][0]
 
-            typer.echo(f"Sample for {hostname}: {sample['observed']}")
             # calculate the age of the most recent sample in seconds
             age = (datetime.now(timezone.utc) - parser.isoparse(sample['observed'])).total_seconds()
             logger.info(f"Sample age for {hostname}: {age} seconds {sample['observed']}")
