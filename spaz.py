@@ -206,7 +206,7 @@ def send_zabbix_data(hostname: str, data: dict):
             logger.debug(f"Sending Zabbix data for {hostname}: {key} {value} at {clocktime}")
             metrics.append(ZabbixMetric(hostname, key, value, clock=clocktime))
     
-    # Create a ZabbixSender object and send the data.  TODO error checking, config management
+    # Create a ZabbixSender object and send the data.  TODO error checkingt
     sender = ZabbixSender(config['zabbix_server'])
     try:
         sender.send(metrics)
@@ -230,7 +230,7 @@ def getzdata(ctx: typer.Context):
     start_time = datetime.now(timezone.utc).isoformat()
 
     # reas and parse the last_run from the config if available
-    # TODO this probably good enough for most use cases, but if we really want to be
+    # TODO this is probably good enough for most use cases, but if we really want to be
     # accurate we should do this per sensor.
     last_run = None
     if 'last_run' in config:
@@ -526,8 +526,6 @@ app.command()(configure)
 app.command()(status)
 app.command()(getzdata)
 app.command()(configsensor)
-
-
 
 if __name__ == "__main__":
     app()

@@ -1,0 +1,6 @@
+- Add error checking for ZabbixSender 
+- Consider updating getzdata to apply last_seen per sensor
+- Error checking for configure and configsensor
+- Complete rewrite of logging
+- rewrite as daemon/service?
+
